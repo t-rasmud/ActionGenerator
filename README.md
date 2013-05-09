@@ -139,6 +139,7 @@ Maven artifacts of ActionGenerator project are published at
 https://oss.sonatype.org/content/groups/public/
 
 * To use ActionGenerator you should add the following dependency to your project:
+
     <dependency>
         <groupId>com.sematext.ag</groupId>
         <artifactId>ag-player</artifactId>
@@ -146,6 +147,7 @@ https://oss.sonatype.org/content/groups/public/
     </dependency>
 
 * To use ActionGenerator for ElasticSearch add the following dependency to your project:
+
     <dependency>
         <groupId>com.sematext.ag</groupId>
         <artifactId>ag-player-es</artifactId>
@@ -153,6 +155,7 @@ https://oss.sonatype.org/content/groups/public/
     </dependency>
 
 * To use ActionGenerator for Apache Solr add the following dependency to your project:
+
     <dependency>
         <groupId>com.sematext.ag</groupId>
         <artifactId>ag-player-solr</artifactId>
