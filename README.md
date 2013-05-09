@@ -12,7 +12,7 @@ You can find blog posts describing ActionGenerator at the following URL:
  * http://blog.sematext.com/2012/06/10/action-generator-part-one/
  * http://blog.sematext.com/2012/07/22/actiongenerator-part-two/
 
-# Project Layout
+## Project Layout
 Currently, the ActionGenerator project is divided into three modules:
  * ag-player      – common classes that enable implementing and running 
                     your own ActionGenerator for virtually any kind of 
@@ -115,7 +115,7 @@ The following action generators are available out of the box:
     java -cp ag-player-es-0.1.6-withdeps.jar com.sematext.ag.es.ComplexDataEsPlayerMain http://localhost:9200/ documents document 100000 schema.json 
  
 
-# Supported Targets
+## Supported Targets
 Current implementation allows you to generate queries and data to the 
 following targets:
  * Apache Solr 
@@ -125,7 +125,7 @@ There are also available external modules with support for other targets:
  * MongoDB (https://github.com/solrpl/ag-player-mongodb ) - currently support only for data generation.
  * CSV (https://github.com/solrpl/ag-player-csv) - support for simple types and simple CSV files
 
-# Adding Support for Other Targets
+## Adding Support for Other Targets
 In order to develop your own action generator, you need to provide the
 following implementations:
  * Event class implementation that will represent a single event you want 
@@ -134,30 +134,30 @@ following implementations:
  * Source implementation that will be responsible for creating your
    events.
 
-# Maven Artifacts
+## Maven Artifacts
 Maven artifacts of ActionGenerator project are published at 
 https://oss.sonatype.org/content/groups/public/
 
 * To use ActionGenerator you should add the following dependency to your project:
-<dependency>
-  <groupId>com.sematext.ag</groupId>
-  <artifactId>ag-player</artifactId>
-  <version>0.1.6</version>
-</dependency>
+    <dependency>
+      <groupId>com.sematext.ag</groupId>
+      <artifactId>ag-player</artifactId>
+      <version>0.1.6</version>
+    </dependency>
 
 * To use ActionGenerator for ElasticSearch add the following dependency to your project:
-<dependency>
-  <groupId>com.sematext.ag</groupId>
-  <artifactId>ag-player-es</artifactId>
-  <version>0.1.6</version>
-</dependency>
+    <dependency>
+      <groupId>com.sematext.ag</groupId>
+      <artifactId>ag-player-es</artifactId>
+      <version>0.1.6</version>
+    </dependency>
 
 * To use ActionGenerator for Apache Solr add the following dependency to your project:
-<dependency>
-  <groupId>com.sematext.ag</groupId>
-  <artifactId>ag-player-solr</artifactId>
-  <version>0.1.6</version>
-</dependency>
+    <dependency>
+      <groupId>com.sematext.ag</groupId>
+      <artifactId>ag-player-solr</artifactId>
+      <version>0.1.6</version>
+    </dependency>
 
 ## Complex Data Definition (using Datamodel library by http://solr.pl/)
 ComplexDataSolrPlayerMain allows you to use expanded data definition.
