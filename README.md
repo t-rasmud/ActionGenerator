@@ -29,7 +29,7 @@ The following action generators are available out of the box:
     - Apache Solr core search handler URL address
     - name of the field queries should be run against
     - number of events
-    For example:
+    - For example:
     java -cp ag-player-solr-0.1.6-withdeps.jar com.sematext.ag.solr.RandomQueriesSolrPlayerMain http://localhost:8983/solr/documents name 1000
 
   * DictionarySolrPlayerMain - generates queries with the use of the provided dictionary.
@@ -38,7 +38,7 @@ The following action generators are available out of the box:
     - name of the field queries should be run against
     - number of events
     - dictionary path
-    For example:
+    - For example:
     java -cp ag-player-solr-0.1.6-withdeps.jar com.sematext.ag.solr.DictionarySolrPlayerMain http://localhost:8983/solr/documents name 1000 dict.txt
   
   * DictionaryDataSolrPlayerMain - generates data and indexes them into provided instance.
@@ -47,7 +47,7 @@ The following action generators are available out of the box:
     - number of events 
     - dictionary path
     - one or more fields and its types
-    For example:
+    - For example:
     java -cp ag-player-solr-0.1.6-withdeps.jar com.sematext.ag.solr.DictionaryDataSolrPlayerMain http://localhost:8983/solr/documents/update/ 100000 dict.txt id:numeric title:text likes:numeric
   
   * ComplexDataSolrPlayerMain - generates data and indexes them into Solr instance as DictionaryDataSolrPlayerMain.
@@ -56,7 +56,7 @@ The following action generators are available out of the box:
     - Apache Solr update handler URL address
     - number of events 
     - path to file with JSON data definition    
-    For example:
+    - For example:
     java -cp ag-player-solr-0.1.6-withdeps.jar com.sematext.ag.solr.ComplexDataSolrPlayerMain http://localhost:8983/solr/documents/update/ 100000 schema.json 
 
 ## ElasticSearch
@@ -66,7 +66,7 @@ The following action generators are available out of the box:
     - index name
     - name of the field queries should be run against
     - number of events
-    For example:
+    - For example:
     java -cp ag-player-es-0.1.6-withdeps.jar com.sematext.ag.es.SimpleEsPlayerMain http://localhost:9200/ documents text 1000
 
   * DictionaryEsPlayerMain - generates queries with the use of the provided dictionary.
@@ -76,7 +76,7 @@ The following action generators are available out of the box:
     - name of the field queries should be run against
     - number of events
     - dictionary path
-    For example:
+    - For example:
     java -cp ag-player-es-0.1.6-withdeps.jar com.sematext.ag.es.DictionaryEsPlayerMain http://localhost:9200/ documents text 1000 dict.txt
 
   * DictionaryDataEsPlayerMain - generates data and indexes them into provided instance.
@@ -87,7 +87,7 @@ The following action generators are available out of the box:
     - number of events
     - dictionary path
     - one or more fields and its types
-    For example:
+    - For example:
     java -cp ag-player-es-0.1.6-withdeps.jar com.sematext.ag.es.DictionaryDataEsPlayerMain http://localhost:9200/ documents document 100000 dict.txt id:numeric title:text likes:numeric
 
   * BulkDictionaryDataEsPlayerMain - generates data and indexes them into provided instance.
@@ -100,7 +100,7 @@ The following action generators are available out of the box:
     - number of events
     - dictionary path
     - one or more fields and its types
-    For example:
+    - For example:
     java -cp ag-player-es-0.1.6-withdeps.jar com.sematext.ag.es.BulkDictionaryDataEsPlayerMain http://localhost:9200/ documents document false 100 100000 dict.txt id:numeric title:text likes:numeric
 
   * ComplexDataEsPlayerMain - generates data and indexes them into Elastic Search instance as DictionaryDataEsPlayerMain.
@@ -111,7 +111,7 @@ The following action generators are available out of the box:
     - name of the field queries should be run against
     - number of events 
     - path to file with JSON data definition    
-    For example:
+    - For example:
     java -cp ag-player-es-0.1.6-withdeps.jar com.sematext.ag.es.ComplexDataEsPlayerMain http://localhost:9200/ documents document 100000 schema.json 
  
 
