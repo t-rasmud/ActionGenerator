@@ -140,27 +140,27 @@ https://oss.sonatype.org/content/groups/public/
 
 * To use ActionGenerator you should add the following dependency to your project:
 
-    <dependency>
+    `<dependency>
         <groupId>com.sematext.ag</groupId>
         <artifactId>ag-player</artifactId>
         <version>0.1.6</version>
-    </dependency>
+    </dependency>`
 
 * To use ActionGenerator for ElasticSearch add the following dependency to your project:
 
-    <dependency>
+    `<dependency>
         <groupId>com.sematext.ag</groupId>
         <artifactId>ag-player-es</artifactId>
         <version>0.1.6</version>
-    </dependency>
+    </dependency>`
 
 * To use ActionGenerator for Apache Solr add the following dependency to your project:
 
-    <dependency>
+    `<dependency>
         <groupId>com.sematext.ag</groupId>
         <artifactId>ag-player-solr</artifactId>
         <version>0.1.6</version>
-    </dependency>
+    </dependency>`
 
 ## Complex Data Definition (using Datamodel library by http://solr.pl/)
 ComplexDataSolrPlayerMain allows you to use expanded data definition.
