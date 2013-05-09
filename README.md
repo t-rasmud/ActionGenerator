@@ -61,7 +61,7 @@ The following action generators are available out of the box:
 
 ## ElasticSearch
   * SimpleEsPlayerMain - generates random queries.
-   You need to provide the following parameters:
+    You need to provide the following parameters:
     - base URL
     - index name
     - name of the field queries should be run against
@@ -69,7 +69,7 @@ The following action generators are available out of the box:
     For example:
     java -cp ag-player-es-0.1.6-withdeps.jar com.sematext.ag.es.SimpleEsPlayerMain http://localhost:9200/ documents text 1000
 
-* DictionaryEsPlayerMain - generates queries with the use of the provided dictionary.
+  * DictionaryEsPlayerMain - generates queries with the use of the provided dictionary.
     You need to provide the following parameters:
     - base URL
     - index name
@@ -79,8 +79,8 @@ The following action generators are available out of the box:
     For example:
     java -cp ag-player-es-0.1.6-withdeps.jar com.sematext.ag.es.DictionaryEsPlayerMain http://localhost:9200/ documents text 1000 dict.txt
 
-* DictionaryDataEsPlayerMain - generates data and indexes them into provided instance.
-   You need to provide the following parameters:
+  * DictionaryDataEsPlayerMain - generates data and indexes them into provided instance.
+    You need to provide the following parameters:
     - base URL
     - index name
     - name of the field queries should be run against
@@ -90,7 +90,7 @@ The following action generators are available out of the box:
     For example:
     java -cp ag-player-es-0.1.6-withdeps.jar com.sematext.ag.es.DictionaryDataEsPlayerMain http://localhost:9200/ documents document 100000 dict.txt id:numeric title:text likes:numeric
 
-* BulkDictionaryDataEsPlayerMain - generates data and indexes them into provided instance.
+  * BulkDictionaryDataEsPlayerMain - generates data and indexes them into provided instance.
     You need to provide the following parameters:
     - base URL
     - index name
@@ -103,7 +103,7 @@ The following action generators are available out of the box:
     For example:
     java -cp ag-player-es-0.1.6-withdeps.jar com.sematext.ag.es.BulkDictionaryDataEsPlayerMain http://localhost:9200/ documents document false 100 100000 dict.txt id:numeric title:text likes:numeric
 
-* ComplexDataEsPlayerMain - generates data and indexes them into Elastic Search instance as DictionaryDataEsPlayerMain.
+  * ComplexDataEsPlayerMain - generates data and indexes them into Elastic Search instance as DictionaryDataEsPlayerMain.
     The main difference is that this player handles more complex data definition (see: Complex Data Definition below). 
     You need to provide the following parameters:
     - base url
@@ -138,28 +138,28 @@ following implementations:
 Maven artifacts of ActionGenerator project are published at 
 https://oss.sonatype.org/content/groups/public/
 
-## To use ActionGenerator you should add the following dependency to your project:
+* To use ActionGenerator you should add the following dependency to your project:
 <dependency>
   <groupId>com.sematext.ag</groupId>
   <artifactId>ag-player</artifactId>
   <version>0.1.6</version>
 </dependency>
 
-## To use ActionGenerator for ElasticSearch add the following dependency to your project:
+* To use ActionGenerator for ElasticSearch add the following dependency to your project:
 <dependency>
   <groupId>com.sematext.ag</groupId>
   <artifactId>ag-player-es</artifactId>
   <version>0.1.6</version>
 </dependency>
 
-## To use ActionGenerator for Apache Solr add the following dependency to your project:
+* To use ActionGenerator for Apache Solr add the following dependency to your project:
 <dependency>
   <groupId>com.sematext.ag</groupId>
   <artifactId>ag-player-solr</artifactId>
   <version>0.1.6</version>
 </dependency>
 
-# Complex Data Definition (using Datamodel library by http://solr.pl/)
+## Complex Data Definition (using Datamodel library by http://solr.pl/)
 ComplexDataSolrPlayerMain allows you to use expanded data definition.
 Using JSON format the following information can be defined:
  * field name
@@ -172,7 +172,7 @@ Using JSON format the following information can be defined:
  
 Example of input file: 
 
-{ 
+	{
 	"data" : {
 		"id" : {
 			"type" : "identifier"
@@ -208,11 +208,11 @@ Example of input file:
 			"available" : ["OPEN", "WAITING", "RUN", "CLOSED"]
 		}
 	}
-}
+	}
 
 Output:
 
-<doc>
+    <doc>
 	<field name="id">30</field>
 	<field name="tags">1061831906</field>
 	<field name="tags">1823041322</field>
@@ -228,11 +228,11 @@ Output:
 	<field name="position.lat">-3581634897016771756</field>
 	<field name="created">2011-05-15T20:57:28</field>
 	<field name="status">OPEN</field>
-</doc>
+    </doc>
 	 
 
-# License
+## License
 Action Generator is released under Apache License, Version 2.0
 
-# Contact
+## Contact
 For any questions ping @sematext, @kucrafal, or @abaranau.
