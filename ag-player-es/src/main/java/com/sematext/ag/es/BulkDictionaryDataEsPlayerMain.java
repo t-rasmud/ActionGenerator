@@ -50,7 +50,7 @@ public final class BulkDictionaryDataEsPlayerMain {
     String dictionaryFile = args[6];
 
     StringBuilder fields = new StringBuilder();
-    fields.append(args[6]);
+    fields.append(args[7]);
     if (args.length > 7) {
       for (int i = 7; i < args.length; i++) {
         fields.append(" ").append(args[i]);

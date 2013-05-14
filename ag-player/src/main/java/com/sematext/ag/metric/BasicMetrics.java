@@ -28,10 +28,10 @@ import java.util.concurrent.TimeUnit;
  * @author sematext, http://www.sematext.com/
  */
 public class BasicMetrics {
-  protected Meter requests;
-  protected Timer timer;
-  private TimerContext context;
- 
+  protected Meter sinkRequests;
+  protected Timer sinkTimer, requestsTimer;
+  private TimerContext sinkTimerContext;
+
   /**
    * Constructor.
    * 
@@ -39,28 +39,48 @@ public class BasicMetrics {
    *          class for calculating metrics
    */
   public BasicMetrics(Class<?> clazz) {
-    requests = Metrics.newMeter(clazz, "requests", "requests", TimeUnit.SECONDS);
-    timer = Metrics.newTimer(clazz, "responses", TimeUnit.MILLISECONDS, TimeUnit.SECONDS);
+    sinkRequests = Metrics.newMeter(clazz, "sinkRequests", "sinkRequests", TimeUnit.SECONDS);
+    sinkTimer = Metrics.newTimer(clazz, "responses", TimeUnit.MILLISECONDS, TimeUnit.SECONDS);
+    requestsTimer = Metrics.newTimer(clazz, "requests", TimeUnit.MILLISECONDS, TimeUnit.SECONDS);
   }
 
-  /** 
+  /**
    * Increment number of requests.
    */
   public void incrementRequests() {
-    requests.mark();
+    sinkRequests.mark();
   }
 
-  /** 
-   * Start timer.
+  /**
+   * Starts sink timer.
    */
-  public void startTimer() {
-    context = timer.time();
+  public void startSinkTimer() {
+    sinkTimerContext = sinkTimer.time();
   }
 
-  /** 
-   * Stop timer.
+  /**
+   * Starts request timer.
+   * 
+   * @return timer context
    */
-  public void stopTimer() {
-    context.stop();
+  public TimerContext startTimer() {
+    return requestsTimer.time();
+  }
+
+  /**
+   * Stops sink timer.
+   */
+  public void stopSinkTimer() {
+    sinkTimerContext.stop();
+  }
+
+  /**
+   * Stops request timer.
+   * 
+   * @param requestTimerContext
+   *          timer context
+   */
+  public void stopTimer(TimerContext requestTimerContext) {
+    requestTimerContext.stop();
   }
 }

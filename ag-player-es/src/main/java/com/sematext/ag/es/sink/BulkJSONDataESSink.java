@@ -15,6 +15,8 @@
  */
 package com.sematext.ag.es.sink;
 
+import com.yammer.metrics.core.TimerContext;
+
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.log4j.Logger;
@@ -70,14 +72,21 @@ public class BulkJSONDataESSink extends SimpleJSONDataESSink {
       LOG.info("Sending ES bulk index event with " + eventsCopy.size() + " events");
       HttpPost postMethod = new HttpPost(esBaseUrl + "/" + ES_BULK_END_POINT);
       StringEntity postEntity;
+      TimerContext timerContext = null;
       try {
         postEntity = new StringEntity(getBulkData(eventsCopy), "UTF-8");
         postMethod.setEntity(postEntity);
         postMethod.expectContinue();
-        return execute(postMethod);
+        timerContext = startRequestTimer();
+        boolean returnValue = execute(postMethod);
+        return returnValue;
       } catch (UnsupportedEncodingException uee) {
         LOG.error("Error sending event: " + uee);
         return false;
+      } finally {
+        if (timerContext != null) {
+          stopRequestTimer(timerContext);
+        }
       }
     }
     return true;

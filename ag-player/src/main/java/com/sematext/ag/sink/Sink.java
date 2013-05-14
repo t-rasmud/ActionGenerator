@@ -15,6 +15,8 @@
  */
 package com.sematext.ag.sink;
 
+import com.yammer.metrics.core.TimerContext;
+
 import com.sematext.ag.PlayerConfig;
 import com.sematext.ag.event.Event;
 import com.sematext.ag.exception.InitializationFailedException;
@@ -53,14 +55,33 @@ public abstract class Sink<T extends Event> extends Measureable {
    */
   public void startCounters() {
     metrics.incrementRequests();
-    metrics.startTimer();
+    metrics.startSinkTimer();
   }
 
   /**
    * Ends metrics calculations for a given write.
    */
   public void endCounters() {
-    metrics.stopTimer();
+    metrics.stopSinkTimer();
+  }
+
+  /**
+   * Starts request timer.
+   * 
+   * @return request timer context
+   */
+  public TimerContext startRequestTimer() {
+    return metrics.startTimer();
+  }
+
+  /**
+   * Stops request timer.
+   * 
+   * @param requestTimerContext
+   *          timer context
+   */
+  public void stopRequestTimer(TimerContext requestTimerContext) {
+    metrics.stopTimer(requestTimerContext);
   }
 
   /**
