@@ -234,6 +234,9 @@ Output:
     </doc>
 	 
 
+## Continuous Integration
+Continuous Integration environment for SearchSchemer project can be found at: https://travis-ci.org/sematext/ActionGenerator
+
 ## License
 Action Generator is released under Apache License, Version 2.0
 
