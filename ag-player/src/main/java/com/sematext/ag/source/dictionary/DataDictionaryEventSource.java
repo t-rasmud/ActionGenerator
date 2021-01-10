@@ -15,6 +15,8 @@
  */
 package com.sematext.ag.source.dictionary;
 
+import org.checkerframework.checker.determinism.qual.*;
+
 import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
@@ -68,7 +70,7 @@ public class DataDictionaryEventSource extends AbstractDictionaryEventSource<Sim
   @Override
   protected SimpleDataEvent createNextEvent() {
     SimpleDataEvent event = new SimpleDataEvent("" + ++created);
-    for (Map.Entry<String, FieldType> entry : fields.entrySet()) {
+    for (Map. @Det Entry<@Det String, @Det FieldType> entry : fields.entrySet()) {
       addField(event, entry.getKey(), entry.getValue());
     }
     return event;
